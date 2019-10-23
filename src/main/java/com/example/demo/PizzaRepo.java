@@ -8,6 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 interface PizzaRepo extends JpaRepository<Pizza, Integer>{
-		public ArrayList<Pizza>findAll();
-		
+		public ArrayList<Pizza>findAll();	
 }
