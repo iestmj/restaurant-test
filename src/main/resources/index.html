@@ -1,0 +1,141 @@
+
+<html>
+
+    <head>		
+    <title>Restaurant</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<style>
+* {box-sizing: border-box}
+body {font-family: Arial, Helvetica, sans-serif;}
+
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  width: 33.333%; /* Three links of equal widths */
+  text-align: center;
+}
+
+.navbar a:hover {
+  background-color: #000;
+}
+
+.navbar a.active {
+  background-color: #4CAF50;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+.hidden{
+visibility:hidden;
+}
+</style>
+</head>
+<body>
+<script src="C:/Users/QA/Documents/workspace-spring-tool-suite-4-4.4.0.RELEASE/MyRestaurant/src/main/resources/static/myrestaurant.js">
+
+</script>
+
+<center><h2>THE RESTAURANT</h2></center>
+<center><h3>Italian</h3></center>
+
+		<div class="navbar">
+		  <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a> 
+		  <a href="#booking"><i class="fa fa-fw fa-envelope"></i> Booking</a> 
+		  <a href="#about"><i class="fa fa-fw fa-user"></i> About</a>
+		</div>
+
+
+				<div class="container">
+				  <center><h2>Meal Suggestions</h2>   
+
+				 
+				  <button type="button" id="bPizza" class="btn btn-default btn-lg">Pizza</button>
+				  <button type="button" id="bPasta" class="btn btn-info btn-lg">Pasta</button>
+				  <button type="button" id="bSalad" class="btn btn-info btn-lg">Salad</button>
+				  </center> 
+				</div>
+				
+									<!-- / Table for Pizza -->
+		
+	<span id = pizzaTable style="display: visible;">	  
+	<br><br><br><BR>
+		<table id="Pizza">
+		<tr>
+		    <th>ID</th>
+		    <th>Pizza Name</th>
+		    <th>Toppings</th>
+		    <th>Cost</th>
+	 	 </tr>
+		</table>
+	
+		<input type="button" value="Update Pizza List" onclick="request()">
+	</span>		
+		
+									<!-- / Table for Pizza End -->
+	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+									
+		<div class="Adding new Pizza">
+				<br><br><br>
+				<hr>
+				<h3>Add new Pizza</h3>
+				<form>
+						<div class="form-group">
+							<label for=pizzaname>Pizza Name:</label> 
+							<input type="text" class="form-control" id="pizzaname" required>
+						</div>
+					<br>
+						<div class="form-group">
+							<label for="toppings">Toppings:</label> 
+							<input type="text" class="form-control" id="toppings" required>
+						</div>
+					<br>
+						<div class="form-group">
+							<label for="cost">Cost:</label> 
+							<input type="text" class="form-control" id="cost" required>
+						</div>
+					<br>
+				<input class="btn btn-primary pull-left" type="button" value="submit" onclick="sending()"/>
+				</form>
+				
+		</div>
+    </body>
+
+</html>
