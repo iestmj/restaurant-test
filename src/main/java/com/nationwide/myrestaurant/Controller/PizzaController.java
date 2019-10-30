@@ -1,4 +1,4 @@
-package com.nationwide.myrestaurant.Entity;
+package com.nationwide.myrestaurant.Controller;
 
 import java.util.ArrayList;
 
@@ -12,21 +12,22 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nationwide.myrestaurant.Entity.Pizza;
+import com.nationwide.myrestaurant.Service.PizzaService;
+
 @RestController
 @CrossOrigin("*")
 class PizzaController {
 		@Autowired
-	//	private PizzaRepo repo;
 		private PizzaService service;
 		
-		//Working
 		
 		@GetMapping("/showAllPizza")
 		public ArrayList<Pizza>getAllPizza(){
 			return service.getAllPizza();
 		}
-		//Working
-		@PostMapping("/save")
+		
+		@PostMapping("/savePizza")
 		public String SaveData(@RequestBody Pizza Ref){
 				service.SaveData(Ref);
 				return "saved";

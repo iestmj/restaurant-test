@@ -1,12 +1,12 @@
-package com.nationwide.myrestaurant.Entity;
+package com.nationwide.myrestaurant;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class InterfaceBeanApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(InterfaceBeanApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 }

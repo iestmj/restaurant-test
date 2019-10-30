@@ -1,13 +1,13 @@
-var pizzaData;
+
 
 function showPizzaList() {
 	  var pizza = document.getElementById("pizzaTable");
 	  var pasta = document.getElementById("pastaTable");
-	  var salad = document.getElementById("saladTable");
 
 	  
 	  if (pizza.style.display === "none") {
 	    pizza.style.display = "block";
+	    pasta.style.display="none";
 	  } else {
 	    pizza.style.display = "none";
 	  }
@@ -17,35 +17,18 @@ function showPizzaList() {
 	function showPastaList() {
 	  var pizza = document.getElementById("pizzaTable");
 	  var pasta = document.getElementById("pastaTable");
-	  var salad = document.getElementById("saladTable");
 
 	  
 	  if (pasta.style.display === "none") {
 	    pasta.style.display = "block";
 	    pizza.style.display = "none";
-	    salad.style.display = "none";
 	  } else {
 	    pasta.style.display = "none";
 	  }
 	  
 	}
 
-	function showSaladList() {
-	  var pizza = document.getElementById("pizzaTable");
-	  var pasta = document.getElementById("pastaTable");
-	  var salad = document.getElementById("saladTable");
-
-	  
-	  if (salad.style.display === "none") {
-	    salad.style.display = "block";
-	    pasta.style.display = "none";
-	    pizza.style.display = "none";
-	  } else {
-	    salad.style.display = "none";
-	  }
-	  
-	}
-
+	
 	function showPizzaForm() {
 	  var pizza = document.getElementById("addPizzaForm");
 
@@ -76,13 +59,26 @@ Http.onreadystatechange = function(e){
 
 		var del = document.createElement("BUTTON");
 		del.innerHTML="Delete";
-		//$(del).attr("onclick", "deletePizza()");
-		//del.onclick = deletePizza();
+		del.onclick = function() {
+			var idPizza = document.getElementById("deleteText");
+			const Http = new XMLHttpRequest();
+			const url='http://localhost:9003/deletePizza/' + idPizza.value;
+			Http.open("DELETE", url,true);
+			Http.setRequestHeader("Content-Type", "application/json");
+			Http.onreadystatechange = function(ev){
+			}
+			Http.send();
+			location.reload();
+		}
+
 
 		var edit = document.createElement("BUTTON");
 		edit.innerHTML="Edit";
-		//$(edit).attr("onclick", "deletePizza()");
-		//edit.onclick = updatePizza();
+		edit.onclick = function() { if (confirm('WARNING!\nYou are about to delete this item')) {
+            deleteCard(this.id);
+        } else {
+
+        }};
 
 		var c1= row.insertCell(0);
 		var c2= row.insertCell(1);
@@ -116,7 +112,7 @@ var cost = document.getElementById("pCost").value;
 
 console.log("helloo");
 const Http = new XMLHttpRequest();
-const url='http://localhost:9003/save';
+const url='http://localhost:9003/savePizza';
 Http.open("POST", url,true);
 Http.setRequestHeader("Content-Type", "application/json");
 const fd={
@@ -137,7 +133,7 @@ var idPizza = document.getElementById("deleteText");
 
 		console.log("helloo");
 const Http = new XMLHttpRequest();
-const url='http://localhost:9003/deletePizza/idPizza';
+const url='http://localhost:9003/deletePizza/' + idPizza.value;
 Http.open("DELETE", url,true);
 Http.setRequestHeader("Content-Type", "application/json");
 // const fd={
@@ -151,8 +147,16 @@ location.reload();
 }
 
 function updatePizza(){
-	console.log("hello");
-// var id = document.getElementById("pizzaID").value;
+	console.log("update");
+
+}
+
+function deletePizza1(){
+	console.log("delete");
+		}
+
+		//$(edit).attr("onclick", "deletePizza()");
+		// var id = document.getElementById("pizzaID").value;
 // var name = document.getElementById("pizzaName").value;
 // var toppings = document.getElementById("pizzaToppings").value;
 // var cost = document.getElementById("pizzaCost").value;
@@ -172,4 +176,3 @@ function updatePizza(){
 // 	console.log("hello");
 // }
 // Http.send(JSON.stringify(fd));
-}

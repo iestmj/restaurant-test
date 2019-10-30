@@ -86,8 +86,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 				  <center><h2>Meal Suggestions</h2>   
 
 				  <button type="button" id="bPizza" class="btn btn-default btn-lg" onclick="showPizzaList()">Pizza</button>
-				  <button type="button" id="bPasta" class="btn btn-info btn-lg">Pasta</button>
-				  <button type="button" id="bSalad" class="btn btn-info btn-lg">Salad</button>
+				  <button type="button" id="bPasta" class="btn btn-info btn-lg" onclick="showPastaList()">Pasta</button>
 				  </center>
 				</div>
 				
@@ -107,12 +106,27 @@ body {font-family: Arial, Helvetica, sans-serif;}
 		</table>
 		<br>
 		What Pizza ID would you like to remove: <input type="text" id="deleteText">      
-		<button type="button" id="deleteButton" class="btn btn-default btn-lg">Delete</button>
+		<button type="button" id="deleteButton" class="btn btn-default btn-lg" onclick ="deletePizza()">Delete</button>
 	</span>
 	<br>
-
 									<!-- / Table showing Pizza End -->
-
+	<span id = pastaTable style="display: none;">	  
+	<br><br>
+		<table id="Pasta">
+		<tr>
+		    <th id="pastaID" >ID</th>
+		    <th id="pastaName">Pizza Name</th>
+		    <th id="pastaToppings">Toppings</th>
+		    <th id="pastaCost">Cost</th>
+		    <th>Functions</th>
+		   
+	 	 </tr>
+		</table>
+		<br>
+		What Pizza ID would you like to remove: <input type="text" id="deleteText">      
+		<button type="button" id="deleteButton" class="btn btn-default btn-lg" onclick ="deletePizza()">Delete</button>
+	</span>
+	<br>
 
 									<!-- / Adding meals -->
 		<div class="container1">

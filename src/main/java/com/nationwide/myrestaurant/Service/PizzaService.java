@@ -1,10 +1,12 @@
-package com.nationwide.myrestaurant.Entity;
+package com.nationwide.myrestaurant.Service;
 
 import java.util.ArrayList;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.nationwide.myrestaurant.Entity.Pizza;
+import com.nationwide.myrestaurant.Repo.PizzaRepo;
 
 @Service
 public class PizzaService {
