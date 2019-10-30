@@ -21,7 +21,7 @@ class PizzaController {
 		
 		//Working
 		
-		@GetMapping("/showAll")
+		@GetMapping("/showAllPizza")
 		public ArrayList<Pizza>getAllPizza(){
 			return service.getAllPizza();
 		}
@@ -31,7 +31,7 @@ class PizzaController {
 				service.SaveData(Ref);
 				return "saved";
 		}
-		
+
 		@DeleteMapping("/deletePizza/{id}")
 		public String deleteRecord(@PathVariable Integer id) {
 			 service.deletePizza(id);

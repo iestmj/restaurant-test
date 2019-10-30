@@ -1,11 +1,13 @@
-
+<!DOCTYPE html>
 <html>
-
-    <head>		
-    <title>Restaurant</title>
+<head>
+	<title>Restaurant</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+<script src="restaurant.js"></script>
+
 <style>
 * {box-sizing: border-box}
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -43,16 +45,33 @@ body {font-family: Arial, Helvetica, sans-serif;}
   }
 }
 
-.hidden{
-visibility:hidden;
+#Pizza {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
+
+#Pizza td, #Pizza th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#Pizza tr:nth-child(even){background-color: #f2f2f2;}
+
+#Pizza tr:hover {background-color: #ddd;}
+
+#Pizza th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
 </style>
 </head>
-<body>
-<script src="C:/Users/QA/Documents/workspace-spring-tool-suite-4-4.4.0.RELEASE/MyRestaurant/src/main/resources/static/myrestaurant.js">
-
-</script>
-
+<body onload="getPizza()">
+	
 <center><h2>THE RESTAURANT</h2></center>
 <center><h3>Italian</h3></center>
 
@@ -66,76 +85,58 @@ visibility:hidden;
 				<div class="container">
 				  <center><h2>Meal Suggestions</h2>   
 
-				 
-				  <button type="button" id="bPizza" class="btn btn-default btn-lg">Pizza</button>
+				  <button type="button" id="bPizza" class="btn btn-default btn-lg" onclick="showPizzaList()">Pizza</button>
 				  <button type="button" id="bPasta" class="btn btn-info btn-lg">Pasta</button>
 				  <button type="button" id="bSalad" class="btn btn-info btn-lg">Salad</button>
-				  </center> 
+				  </center>
 				</div>
 				
-									<!-- / Table for Pizza -->
+									<!-- / Table showing Pizza -->
 		
-	<span id = pizzaTable style="display: visible;">	  
-	<br><br><br><BR>
+	<span id = pizzaTable style="display: none;">	  
+	<br><br>
 		<table id="Pizza">
 		<tr>
-		    <th>ID</th>
-		    <th>Pizza Name</th>
-		    <th>Toppings</th>
-		    <th>Cost</th>
+		    <th id="pizzaID" >ID</th>
+		    <th id="pizzaName">Pizza Name</th>
+		    <th id="pizzaToppings">Toppings</th>
+		    <th id="pizzaCost">Cost</th>
+		    <th>Functions</th>
+		   
 	 	 </tr>
 		</table>
-	
-		<input type="button" value="Update Pizza List" onclick="request()">
-	</span>		
-		
-									<!-- / Table for Pizza End -->
-	
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-									
-		<div class="Adding new Pizza">
-				<br><br><br>
-				<hr>
-				<h3>Add new Pizza</h3>
-				<form>
-						<div class="form-group">
-							<label for=pizzaname>Pizza Name:</label> 
-							<input type="text" class="form-control" id="pizzaname" required>
-						</div>
-					<br>
-						<div class="form-group">
-							<label for="toppings">Toppings:</label> 
-							<input type="text" class="form-control" id="toppings" required>
-						</div>
-					<br>
-						<div class="form-group">
-							<label for="cost">Cost:</label> 
-							<input type="text" class="form-control" id="cost" required>
-						</div>
-					<br>
-				<input class="btn btn-primary pull-left" type="button" value="submit" onclick="sending()"/>
-				</form>
-				
-		</div>
-    </body>
+		<br>
+		What Pizza ID would you like to remove: <input type="text" id="deleteText">      
+		<button type="button" id="deleteButton" class="btn btn-default btn-lg">Delete</button>
+	</span>
+	<br>
 
+									<!-- / Table showing Pizza End -->
+
+
+									<!-- / Adding meals -->
+		<div class="container1">
+				  <center><h2>Add a meal</h2>   
+
+				 
+				  <button type="button" id="bPizza1" class="btn btn-default btn-lg" onclick="showPizzaForm()">Pizza</button>
+				  <button type="button" id="bPasta1" class="btn btn-info btn-lg">Pasta</button>
+				  <button type="button" id="bSalad1" class="btn btn-info btn-lg">Salad</button>
+				  </center> 
+		</div>
+
+		<center><form id="addPizzaForm" onsubmit = "return postPizza(this)" style="display: none;">
+			<br>
+			<input id = "pName" name="Pizza Name" type="text" placeholder="enter pizza name">
+			<br>
+			<input id="pToppings" name="Toppings" type="text" placeholder="enter toppings">
+			<br>
+			<input id="pCost" name="Cost" type="text" placeholder="enter suggested cost">
+			<br>
+			<input type="submit">
+		</form></center>
+
+
+
+</body>
 </html>

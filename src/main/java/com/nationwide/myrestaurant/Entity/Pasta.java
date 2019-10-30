@@ -7,12 +7,12 @@ import javax.persistence.Id;
 
 @Entity
 
-public class Pizza {
+public class Pasta {
 		@Id
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
 		private int id;
 		private String name;
-		private String toppings;
+		private String ingredients;
 		private int cost;
 	
 
@@ -31,13 +31,13 @@ public class Pizza {
 		public void setName(String name) {
 			this.name = name;
 		}
-
-		public String getToppings() {
-			return toppings;
+		
+		public String getIngredients() {
+			return ingredients;
 		}
 
-		public void setToppings(String toppings) {
-			this.toppings = toppings;
+		public void setIngredients(String ingredients) {
+			this.ingredients = ingredients;
 		}
 
 		public int getCost() {
