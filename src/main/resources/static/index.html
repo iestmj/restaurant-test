@@ -68,6 +68,29 @@ body {font-family: Arial, Helvetica, sans-serif;}
   color: white;
 }
 
+#Pasta {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#Pasta td, #Pasta th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#Pasta tr:nth-child(even){background-color: #f2f2f2;}
+
+#Pasta tr:hover {background-color: #ddd;}
+
+#Pasta th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
 </style>
 </head>
 <body onload="getPizza()">
@@ -96,50 +119,17 @@ body {font-family: Arial, Helvetica, sans-serif;}
 	<br><br>
 		<table id="Pizza">
 		<tr>
-		    <th id="pizzaID" >ID</th>
+		    
 		    <th id="pizzaName">Pizza Name</th>
 		    <th id="pizzaToppings">Toppings</th>
-		    <th id="pizzaCost">Cost</th>
-		    <th>Functions</th>
+		    <th id="pizzaCost">Cost(£)</th>
+		    <th></th>
 		   
 	 	 </tr>
 		</table>
 		<br>
-		What Pizza ID would you like to remove: <input type="text" id="deleteText">      
-		<button type="button" id="deleteButton" class="btn btn-default btn-lg" onclick ="deletePizza()">Delete</button>
-	</span>
-	<br>
-									<!-- / Table showing Pizza End -->
-	<span id = pastaTable style="display: none;">	  
-	<br><br>
-		<table id="Pasta">
-		<tr>
-		    <th id="pastaID" >ID</th>
-		    <th id="pastaName">Pizza Name</th>
-		    <th id="pastaToppings">Toppings</th>
-		    <th id="pastaCost">Cost</th>
-		    <th>Functions</th>
-		   
-	 	 </tr>
-		</table>
-		<br>
-		What Pizza ID would you like to remove: <input type="text" id="deleteText">      
-		<button type="button" id="deleteButton" class="btn btn-default btn-lg" onclick ="deletePizza()">Delete</button>
-	</span>
-	<br>
-
-									<!-- / Adding meals -->
-		<div class="container1">
-				  <center><h2>Add a meal</h2>   
-
-				 
-				  <button type="button" id="bPizza1" class="btn btn-default btn-lg" onclick="showPizzaForm()">Pizza</button>
-				  <button type="button" id="bPasta1" class="btn btn-info btn-lg">Pasta</button>
-				  <button type="button" id="bSalad1" class="btn btn-info btn-lg">Salad</button>
-				  </center> 
-		</div>
-
-		<center><form id="addPizzaForm" onsubmit = "return postPizza(this)" style="display: none;">
+			<center><h2>Add a pizza</h2> </center> 
+				<center><form id="addPizzaForm" onsubmit = "return postPizza(this)">
 			<br>
 			<input id = "pName" name="Pizza Name" type="text" placeholder="enter pizza name">
 			<br>
@@ -149,8 +139,35 @@ body {font-family: Arial, Helvetica, sans-serif;}
 			<br>
 			<input type="submit">
 		</form></center>
+	</span>
+	<br>
+									<!-- / Table showing Pizza End -->
+	<span id = pastaTable style="display: none;">	  
+	<br><br>
+		<table id="Pasta">
+		<tr>
+		    <th id="pastaName">Pizza Name</th>
+		    <th id="pastaToppings">Toppings</th>
+		    <th id="pastaCost">Cost</th>
+		    <th></th>
+		   
+	 	 </tr>
+		</table>
+		<br>
+			<center><h2>Add a pasta dish</h2> </center> 
+			<center><form id="addPastaForm" onsubmit = "return postPasta(this)">
+			<br>
+			<input id = "pastaName" name="Pasta Name" type="text" placeholder="enter pasta name">
+			<br>
+			<input id="pastaIngredients" name="Ingredients" type="text" placeholder="enter ingredients">
+			<br>
+			<input id="pastaCost" name="Cost" type="text" placeholder="enter suggested cost">
+			<br>
+			<input type="submit">
+		</form></center>
+	</span>
+	<br>
 
-
-
+									
 </body>
 </html>
