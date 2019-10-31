@@ -16,27 +16,12 @@ function showList() {
     getPasta();
   }	
 
-//   function showPastaList() {
-//     var pizza = document.getElementById("pizzaTable");
-//     var pasta = document.getElementById("pastaTable");
-
-    
-//     if (pasta.style.display === "none") {
-//       pasta.style.display = "block";
-//       pizza.style.display = "none";
-//     } else {
-//       pasta.style.display = "none";
-//     }
-
-//     getPasta();
-    
-//   }
-
 function getPizza(){
 
     console.log("helloo");
     const Http = new XMLHttpRequest();
-    const url='http://localhost:9003/showAllPizza';
+  //  const url='http://localhost:9003/showAllPizza';
+    const url='http://'+location.hostname+':9003/showAllPizza';
     Http.open("GET", url);
     Http.onreadystatechange = function(e){
     console.log("status"+Http.readyState);
@@ -120,7 +105,8 @@ function getPizza(){
 
 function editPizza(pizzaid,name,toppings,cost){
         	const Http = new XMLHttpRequest();
-          	const url='http://localhost:9003/updatePizza';
+            //const url='http://localhost:9003/updatePizza';
+            const url='http://'+location.hostname+':9003/updatePizza';
           	Http.open("PUT", url,true);
           	Http.setRequestHeader("Content-Type", "application/json");
           	const fd={
@@ -143,7 +129,8 @@ function postPizza(){
 
     console.log("helloo");
     const Http = new XMLHttpRequest();
-    const url='http://localhost:9003/savePizza';
+   // const url='http://localhost:9003/savePizza';
+    const url='http://'+location.hostname+':9003/savePizza';
     Http.open("POST", url,true);
     Http.setRequestHeader("Content-Type", "application/json");
     const fd={
@@ -164,7 +151,9 @@ function postPizza(){
 function getPasta(){
 
     const Http = new XMLHttpRequest();
-    const url='http://localhost:9003/showAllPasta';
+    
+    const url='http://'+location.hostname+':9003/showAllPasta';
+   // const url='http://localhost:9003/showAllPasta';
     Http.open("GET", url);
     Http.onreadystatechange = function(e){
       console.log("status"+Http.readyState);
@@ -181,8 +170,8 @@ function getPasta(){
           del.id=item.id;
           del.onclick = function() {
               const Http = new XMLHttpRequest();
-              //const url='http://'+location.hostname+':9003/deletePasta/'+item.id;
-              const url='http://localhost:9003/deletePasta/'+item.id;
+              const url='http://'+location.hostname+':9003/deletePasta/'+item.id;
+             // const url='http://localhost:9003/deletePasta/'+item.id;
               Http.open("DELETE", url,true);
               Http.setRequestHeader("Content-Type", "application/json");
               Http.onreadystatechange = function(ev){
@@ -250,7 +239,8 @@ function postPasta(){
         var cost = document.getElementById("pastaCostinput").value;
 
         const Http = new XMLHttpRequest();
-        const url='http://localhost:9003/savePasta';
+        //const url='http://localhost:9003/savePasta';
+        const url='http://'+location.hostname+':9003/savePasta';
         Http.open("POST", url,true);
         Http.setRequestHeader("Content-Type", "application/json");
         console.log(name);
@@ -268,7 +258,8 @@ function postPasta(){
 function editPasta(pastaid,name,ingredients,cost){
     
         const Http = new XMLHttpRequest();
-          const url='http://localhost:9003/updatePasta';
+         // const url='http://localhost:9003/updatePasta';
+         const url='http://'+location.hostname+':9003/updatePasta';
           Http.open("PUT", url,true);
           Http.setRequestHeader("Content-Type", "application/json");
           const fd={
@@ -283,4 +274,5 @@ function editPasta(pastaid,name,ingredients,cost){
               console.log("updated");
           }
           Http.send(JSON.stringify(fd));
+
 }
