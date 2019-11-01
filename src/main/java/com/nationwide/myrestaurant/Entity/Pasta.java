@@ -13,7 +13,7 @@ public class Pasta {
 		private int id;
 		private String name;
 		private String ingredients;
-		private int cost;
+		private float cost;
 	
 
 		public int getId() {
@@ -40,11 +40,11 @@ public class Pasta {
 			this.ingredients = ingredients;
 		}
 
-		public int getCost() {
+		public float getCost() {
 			return cost;
 		}
 
-		public void setCost(int cost) {
+		public void setCost(float cost) {
 			this.cost = cost;
 		}
 		

@@ -1,15 +1,23 @@
-function showList() {
+function showPizza() {
     var pizza = document.getElementById("pizzaTable");
     var pasta = document.getElementById("pastaTable");
 
     
     if (pizza.style.display === "none") {
-      pizza.style.display = "block";
-      pasta.style.display="none";
-    } else {
+      pizza.style.display="block";
+      pasta.style.display = "none";
+    }
+    getPizza();
+  }	
+
+function showPasta() {
+    var pizza = document.getElementById("pizzaTable");
+    var pasta = document.getElementById("pastaTable");
+
+    
+    if (pasta.style.display === "none") {
+      pasta.style.display="block";
       pizza.style.display = "none";
-      pasta.style.display = "block";
-      
     }
     getPasta();
   }	
