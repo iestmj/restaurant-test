@@ -138,12 +138,12 @@ function postPizza(){
     'toppings': toppings,
     'cost': cost
     }
-    Http.onreadystatechange = function(ev) {
-    console.log("hello");
+    Http.onload = function(ev) {
+      getPizza();
     }
     Http.send(JSON.stringify(fd));
-    location.reload();
-}
+    return false;
+  }
 
 
 
