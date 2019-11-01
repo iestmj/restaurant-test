@@ -120,8 +120,10 @@ function editPizza(pizzaid,name,toppings,cost){
           	  'cost': cost
           	}
           	Http.onreadystatechange = function(ev) {
+          		getPasta();
           	}
           	Http.send(JSON.stringify(fd));
+          	return false;
 }
 
 function postPizza(){
@@ -143,10 +145,10 @@ function postPizza(){
     'cost': cost
     }
     Http.onload = function(ev) {
-//      getPizza();
+      getPizza();
     }
     Http.send(JSON.stringify(fd));
-//    return false;
+    return false;
   }
 
 
@@ -257,8 +259,10 @@ function postPasta(){
         'cost': cost
         }
         Http.onreadystatechange = function(ev) {
+        	getPasta();
         }
         Http.send(JSON.stringify(fd));
+        return false;
  }
 
 function editPasta(pastaid,name,ingredients,cost){
@@ -278,7 +282,9 @@ function editPasta(pastaid,name,ingredients,cost){
           console.log(pastaid, name, ingredients, cost);
           
           Http.onreadystatechange = function(ev) {
+        	  getPasta();
           }
           Http.send(JSON.stringify(fd));
+          return false;
 
 }
