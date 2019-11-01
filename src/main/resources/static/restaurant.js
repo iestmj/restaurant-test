@@ -1,5 +1,3 @@
-
-
 function showList() {
     var pizza = document.getElementById("pizzaTable");
     var pasta = document.getElementById("pastaTable");
@@ -15,6 +13,9 @@ function showList() {
     }
     getPasta();
   }	
+
+
+
 
 function getPizza(){
 
@@ -120,10 +121,9 @@ function editPizza(pizzaid,name,toppings,cost){
           	  'cost': cost
           	}
           	Http.onreadystatechange = function(ev) {
-          		getPasta();
+          		getPizza();
           	}
           	Http.send(JSON.stringify(fd));
-          	return false;
 }
 
 function postPizza(){
@@ -282,9 +282,8 @@ function editPasta(pastaid,name,ingredients,cost){
           console.log(pastaid, name, ingredients, cost);
           
           Http.onreadystatechange = function(ev) {
-        	  getPasta();
+              getPasta();
           }
           Http.send(JSON.stringify(fd));
-          return false;
 
 }
