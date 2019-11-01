@@ -107,7 +107,6 @@ function getPizza(){
     }
     }
     Http.send();
-    location.reload();
 }
 
 function editPizza(pizzaid,name,toppings,cost){
@@ -124,9 +123,10 @@ function editPizza(pizzaid,name,toppings,cost){
           	  'cost': cost
           	}
           	Http.onreadystatechange = function(ev) {
-          		getPizza();
+          		//getPizza();
           	}
           	Http.send(JSON.stringify(fd));
+          	location.reload();
 }
 
 function postPizza(){
@@ -290,5 +290,5 @@ function editPasta(pastaid,name,ingredients,cost){
               getPasta();
           }
           Http.send(JSON.stringify(fd));
-          location.reload();
+      
 }
