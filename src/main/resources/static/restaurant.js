@@ -126,7 +126,6 @@ function editPizza(pizzaid,name,toppings,cost){
           		//getPizza();
           	}
           	Http.send(JSON.stringify(fd));
-          	location.reload();
 }
 
 function postPizza(){
