@@ -7,7 +7,6 @@ function showPizza() {
       pizza.style.display="block";
       pasta.style.display = "none";
     }
-    getPizza();
   }	
 
 function showPasta() {
