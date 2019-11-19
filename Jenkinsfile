@@ -9,12 +9,12 @@ pipeline {
             }
         stage('Build') {
             steps {
-		sh 'docker build -t="iestmj/restaurant-project:latest" .'
+		sh 'docker build -t="iestmj/myrestaurant:latest" .'
                 }
             }
         stage('Deploy') {
             steps {
-		sh 'docker push iestmj/restaurant-project:latest'
+		sh 'docker push iestmj/myrestaurant:latest'
             }
         }
     }
