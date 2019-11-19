@@ -4,13 +4,11 @@ pipeline {
     stages {
         stage('Testing Environment') {
             steps {
-                    sh 'mvn test -Dtest=ControllerAndServiceSuite'
-			sh 'mvn test -Dtest=IntegrationSuite'
+                    echo "test"
                 }
             }
         stage('Build') {
             steps {
-		sh 'mvn package -DskipTests'
 		sh 'docker build -t="iestmj/restaurant-project:latest" .'
                 }
             }
