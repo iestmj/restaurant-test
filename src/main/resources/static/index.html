@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Restaurant</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+<script src="restaurant.js"></script>
+
+<style>
+* {box-sizing: border-box}
+body {font-family: Arial, Helvetica, sans-serif;}
+
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  width: 33.333%; /* Three links of equal widths */
+  text-align: center;
+}
+
+.navbar a:hover {
+  background-color: #000;
+}
+
+.navbar a.active {
+  background-color: #4CAF50;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+#Pizza {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#Pizza td, #Pizza th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#Pizza tr:nth-child(even){background-color: #f2f2f2;}
+
+#Pizza tr:hover {background-color: #ddd;}
+
+#Pizza th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+#Pasta {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#Pasta td, #Pasta th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#Pasta tr:nth-child(even){background-color: #f2f2f2;}
+
+#Pasta tr:hover {background-color: #ddd;}
+
+#Pasta th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+</style>
+</head>
+<body onload="getPizza()">
+	
+<center><h2>PIZZA & PASTA</h2></center>
+<center><h3>Italian Restaurant</h3></center>
+
+		<div class="navbar">
+		  <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a> 
+		  <a href="#booking"><i class="fa fa-fw fa-envelope"></i> Booking</a> 
+		  <a href="#about"><i class="fa fa-fw fa-user"></i> About</a>
+		</div>
+
+
+				<div class="container">
+				  <center><h2>Meal Suggestions</h2>   
+
+				  <button type="button" id="bPizza" class="btn btn-default btn-lg" onclick="showList()">Pizza</button>
+				  <button type="button" id="bPasta" class="btn btn-info btn-lg" onclick="showList()">Pasta</button>
+				  </center>
+				</div>
+				
+									<!-- / Table showing Pizza -->
+		
+	<span id = pizzaTable style="display: block">	  
+    <br><br>
+    <center><h2>Pizza</h2>  </center>
+		<table id="Pizza">
+            <thead>
+		<tr>
+		    <th id="pizzaName">Pizza Name</th>
+		    <th id="pizzaToppings">Toppings</th>
+		    <th id="pizzaCost">Cost (£)</th>
+		    <th></th>
+          </tr>
+        </thead>
+        <tbody id="pizzaBody"></tbody>
+		</table>
+		<br>
+			<center><h2>Add a pizza</h2> </center> 
+				<center><form id="addPizzaForm" onsubmit = "return postPizza(this)">
+			<br>
+			<input id = "pName" name="Pizza Name" type="text" placeholder="enter pizza name">
+			<br>
+			<input id="pToppings" name="Toppings" type="text" placeholder="enter toppings">
+			<br>
+			<input id="pCost" name="Cost" type="text" placeholder="enter suggested cost">
+			<br>
+			<input type="submit">
+		</form></center>
+	</span>
+	<br>
+									<!-- / Table showing Pizza End -->
+	<span id = pastaTable style="display: none;">	  
+    <br><br>
+    <center><h2>Pasta</h2>  </center>
+    <table id="Pasta">
+        <thead>
+		<tr>
+		    <th id="pastaName">Pasta Name</th>
+		    <th id="pastaIngredients">Ingredients</th>
+		    <th id="pastaCost">Cost (£)</th>
+		    <th></th>
+          </tr>
+          </thead>
+          <tbody id="pastaBody"></tbody>
+
+		</table>
+		<br>
+			<center><h2>Add a pasta dish</h2> </center> 
+			<center><form id="addPastaForm" onsubmit = "return postPasta(this)">
+			<br>
+			<input id = "pastaNameinput" name="Pasta Name" type="text" placeholder="enter pasta name">
+			<br>
+			<input id="pastaIngredientsinput" name="Ingredients" type="text" placeholder="enter ingredients">
+			<br>
+			<input id="pastaCostinput" name="Cost" type="text" placeholder="enter suggested cost">
+			<br>
+			<input type="submit">
+		</form></center>
+	</span>
+	<br>
+
+									
+</body>
+</html>
